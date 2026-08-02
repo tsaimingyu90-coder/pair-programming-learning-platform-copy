@@ -1,0 +1,66 @@
+{
+  "name": "PromptBlock",
+  "type": "object",
+  "properties": {
+    "key": {
+      "type": "string",
+      "description": "\u552f\u4e00\u8b58\u5225\u78bc\uff0c\u4f8b\u5982 roleLock\u3001answerGuard"
+    },
+    "label": {
+      "type": "string",
+      "description": "\u986f\u793a\u540d\u7a31"
+    },
+    "description": {
+      "type": "string",
+      "description": "\u6b64 block \u7684\u529f\u80fd\u8aaa\u660e"
+    },
+    "block_type": {
+      "type": "string",
+      "enum": [
+        "role_lock",
+        "role_body",
+        "answer_guard",
+        "language_rules",
+        "platform_rules",
+        "custom"
+      ],
+      "description": "block \u985e\u578b"
+    },
+    "role_scope": {
+      "type": "string",
+      "description": "\u9069\u7528\u89d2\u8272\uff1adriver\u3001navigator\u3001solo\u3001global"
+    },
+    "priority": {
+      "type": "number",
+      "description": "\u7d44\u88dd\u9806\u5e8f\uff08\u6578\u5b57\u8d8a\u5c0f\u8d8a\u5148\uff09",
+      "default": 10
+    },
+    "content": {
+      "type": "string",
+      "description": "\u5be6\u969b prompt \u5167\u5bb9\uff08\u652f\u63f4 {{prompt_text}}\u3001{{participant_id}} \u7b49 placeholder\uff09"
+    },
+    "enabled": {
+      "type": "boolean",
+      "description": "\u662f\u5426\u555f\u7528",
+      "default": true
+    },
+    "source_type": {
+      "type": "string",
+      "enum": [
+        "hardcoded",
+        "database",
+        "generated"
+      ],
+      "description": "\u4f86\u6e90\u985e\u578b",
+      "default": "database"
+    },
+    "function_name": {
+      "type": "string",
+      "description": "\u5c0d\u61c9\u7684 hardcoded \u51fd\u6578\u540d\u7a31\uff08\u50c5\u4f9b\u53c3\u8003\uff09"
+    }
+  },
+  "required": [
+    "key",
+    "label"
+  ]
+}

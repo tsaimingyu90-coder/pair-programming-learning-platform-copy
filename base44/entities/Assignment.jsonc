@@ -1,0 +1,165 @@
+{
+  "name": "Assignment",
+  "type": "object",
+  "properties": {
+    "assignment_id": {
+      "type": "string",
+      "description": "Unique assignment identifier, e.g. W1_T1, W2_T3"
+    },
+    "week_number": {
+      "type": "number",
+      "description": "Week number (1-6)",
+      "minimum": 1,
+      "maximum": 6
+    },
+    "task_number": {
+      "type": "number",
+      "description": "Task number within the week (1-10)",
+      "minimum": 1,
+      "maximum": 10
+    },
+    "title": {
+      "type": "string",
+      "description": "Assignment title"
+    },
+    "question_type": {
+      "type": "string",
+      "enum": [
+        "CodeProblem",
+        "ShortAnswer",
+        "MultipleChoice",
+        "FillInBlank",
+        "Other"
+      ],
+      "default": "CodeProblem",
+      "description": "\u984c\u578b\u985e\u5225"
+    },
+    "difficulty_label": {
+      "type": "string",
+      "description": "\u8ab2\u5802\u4f5c\u696d\u96e3\u5ea6\u6a19\u7c64\uff08\u9078\u586b\uff0c\u5982\uff1a\u2605\u2605\u2606\u3001\u7c21\u55ae\u3001\u56f0\u96e3\uff09"
+    },
+    "prompt_text": {
+      "type": "string",
+      "description": "Full assignment prompt"
+    },
+    "example_code": {
+      "type": "string",
+      "description": "Example code for this task (optional)"
+    },
+    "example_title": {
+      "type": "string",
+      "description": "Title for the example code (optional)"
+    },
+    "example_subtitle": {
+      "type": "string",
+      "description": "Subtitle/description for the example code (optional)"
+    },
+    "example_image_url": {
+      "type": "string",
+      "description": "Image URL for the example section (optional)"
+    },
+    "example_image_url2": {
+      "type": "string",
+      "description": "Image URL 2 for the example section (optional)"
+    },
+    "example_image_url3": {
+      "type": "string",
+      "description": "Image URL 3 for the example section (optional)"
+    },
+    "example_image_url4": {
+      "type": "string",
+      "description": "Image URL 4 for the example section (optional)"
+    },
+    "example_image_url5": {
+      "type": "string",
+      "description": "Image URL 5 for the example section (optional)"
+    },
+    "example_image_label": {
+      "type": "string",
+      "description": "Label for example image 1 (optional)"
+    },
+    "example_image_label2": {
+      "type": "string",
+      "description": "Label for example image 2 (optional)"
+    },
+    "example_image_label3": {
+      "type": "string",
+      "description": "Label for example image 3 (optional)"
+    },
+    "example_image_label4": {
+      "type": "string",
+      "description": "Label for example image 4 (optional)"
+    },
+    "example_image_label5": {
+      "type": "string",
+      "description": "Label for example image 5 (optional)"
+    },
+    "assignment_image_url": {
+      "type": "string",
+      "description": "Image URL for the assignment section (optional)"
+    },
+    "assignment_image_url2": {
+      "type": "string",
+      "description": "Image URL 2 for the assignment section (optional)"
+    },
+    "assignment_image_url3": {
+      "type": "string",
+      "description": "Image URL 3 for the assignment section (optional)"
+    },
+    "assignment_image_url4": {
+      "type": "string",
+      "description": "Image URL 4 for the assignment section (optional)"
+    },
+    "assignment_image_url5": {
+      "type": "string",
+      "description": "Image URL 5 for the assignment section (optional)"
+    },
+    "assignment_image_label": {
+      "type": "string",
+      "description": "Label for assignment image 1 (optional)"
+    },
+    "assignment_image_label2": {
+      "type": "string",
+      "description": "Label for assignment image 2 (optional)"
+    },
+    "assignment_image_label3": {
+      "type": "string",
+      "description": "Label for assignment image 3 (optional)"
+    },
+    "assignment_image_label4": {
+      "type": "string",
+      "description": "Label for assignment image 4 (optional)"
+    },
+    "assignment_image_label5": {
+      "type": "string",
+      "description": "Label for assignment image 5 (optional)"
+    },
+    "hint_text": {
+      "type": "string",
+      "description": "Hint text (optional)"
+    },
+    "allow_ai": {
+      "type": "boolean",
+      "description": "Whether AI usage is permitted",
+      "default": false
+    },
+    "is_open": {
+      "type": "boolean",
+      "description": "Whether the task is open for students to access",
+      "default": false
+    },
+    "rubric": {
+      "type": "string",
+      "description": "Grading rubric (optional)"
+    },
+    "answer": {
+      "type": "string",
+      "description": "Reference answer / sample solution (optional)"
+    }
+  },
+  "required": [
+    "assignment_id",
+    "week_number",
+    "task_number"
+  ]
+}

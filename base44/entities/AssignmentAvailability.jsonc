@@ -1,0 +1,40 @@
+{
+  "name": "AssignmentAvailability",
+  "type": "object",
+  "properties": {
+    "assignment": {
+      "type": "string",
+      "description": "Reference to Assignment ID"
+    },
+    "assignment_id_str": {
+      "type": "string",
+      "description": "Assignment ID string (e.g. W1_T1) for quick lookup"
+    },
+    "class_id": {
+      "type": "string",
+      "description": "Class identifier (e.g. \u96fb\u5b50\u4e00\u7532)"
+    },
+    "is_open": {
+      "type": "boolean",
+      "description": "Whether this assignment is open for this class",
+      "default": false
+    },
+    "updated_by": {
+      "type": "string",
+      "description": "Email of admin who last changed this"
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp of last change"
+    },
+    "note": {
+      "type": "string",
+      "description": "Optional note for this change"
+    }
+  },
+  "required": [
+    "assignment",
+    "class_id"
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "name": "ClassNote",
+  "type": "object",
+  "properties": {
+    "participant_id": {
+      "type": "string",
+      "description": "Participant database ID"
+    },
+    "date": {
+      "type": "string",
+      "format": "date",
+      "description": "Class date (YYYY-MM-DD)"
+    },
+    "content": {
+      "type": "string",
+      "description": "Observation or note content"
+    },
+    "assessment": {
+      "type": "string",
+      "enum": [
+        "\u512a\u79c0",
+        "\u826f\u597d",
+        "\u666e\u901a",
+        "\u9700\u52a0\u5f37",
+        ""
+      ],
+      "default": "",
+      "description": "Teacher's assessment of this session"
+    }
+  },
+  "required": [
+    "participant_id",
+    "date",
+    "content"
+  ]
+}

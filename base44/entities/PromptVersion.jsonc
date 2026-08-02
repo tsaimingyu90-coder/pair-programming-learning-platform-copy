@@ -1,0 +1,36 @@
+{
+  "name": "PromptVersion",
+  "type": "object",
+  "properties": {
+    "prompt_id": {
+      "type": "string",
+      "description": "Reference to SystemPrompt ID"
+    },
+    "label": {
+      "type": "string"
+    },
+    "role": {
+      "type": "string"
+    },
+    "scope": {
+      "type": "string"
+    },
+    "assignment_id": {
+      "type": "string"
+    },
+    "full_prompt": {
+      "type": "string"
+    },
+    "display_prompt": {
+      "type": "string"
+    },
+    "note": {
+      "type": "string",
+      "description": "\u4fee\u6539\u5099\u8a3b"
+    }
+  },
+  "required": [
+    "prompt_id",
+    "full_prompt"
+  ]
+}

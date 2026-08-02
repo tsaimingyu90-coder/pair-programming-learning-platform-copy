@@ -1,0 +1,28 @@
+{
+  "name": "ModelSettings",
+  "type": "object",
+  "properties": {
+    "role": {
+      "type": "string",
+      "enum": [
+        "driver",
+        "navigator",
+        "solo"
+      ],
+      "description": "\u9069\u7528\u89d2\u8272\uff1adriver=\u5b78\u751f\u5c0e\u822a\u3001navigator=AI\u5c0e\u822a\u3001solo=Solo\u6a21\u5f0f"
+    },
+    "temperature": {
+      "type": "number",
+      "description": "Gemini temperature \u53c3\u6578\uff080~2\uff09",
+      "default": 0.25
+    },
+    "max_output_tokens": {
+      "type": "number",
+      "description": "Gemini maxOutputTokens \u53c3\u6578",
+      "default": 220
+    }
+  },
+  "required": [
+    "role"
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "name": "SettingsChangeLog",
+  "type": "object",
+  "properties": {
+    "category": {
+      "type": "string",
+      "enum": [
+        "model_settings",
+        "timing_settings",
+        "system_prompt"
+      ],
+      "description": "\u8b8a\u66f4\u985e\u5225"
+    },
+    "role": {
+      "type": "string",
+      "description": "\u9069\u7528\u89d2\u8272\uff08driver/navigator/solo\uff0c\u6216 timing\uff09"
+    },
+    "label": {
+      "type": "string",
+      "description": "\u986f\u793a\u540d\u7a31\uff08\u5982 Prompt \u6a19\u984c\uff09"
+    },
+    "snapshot": {
+      "type": "string",
+      "description": "\u8b8a\u66f4\u5167\u5bb9\u7684 JSON \u5feb\u7167"
+    },
+    "changed_by": {
+      "type": "string",
+      "description": "\u64cd\u4f5c\u8005 email"
+    }
+  },
+  "required": [
+    "category"
+  ]
+}

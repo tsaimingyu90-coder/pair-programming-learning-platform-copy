@@ -1,0 +1,33 @@
+{
+  "name": "PromptBlockHistory",
+  "type": "object",
+  "properties": {
+    "block_key": {
+      "type": "string",
+      "description": "\u5c0d\u61c9\u7684 PromptBlock key"
+    },
+    "block_id": {
+      "type": "string",
+      "description": "\u5c0d\u61c9\u7684 PromptBlock DB ID"
+    },
+    "before": {
+      "type": "string",
+      "description": "\u4fee\u6539\u524d\u7684 JSON snapshot"
+    },
+    "after": {
+      "type": "string",
+      "description": "\u4fee\u6539\u5f8c\u7684 JSON snapshot"
+    },
+    "changed_by": {
+      "type": "string",
+      "description": "\u4fee\u6539\u4eba email"
+    },
+    "note": {
+      "type": "string",
+      "description": "\u5099\u8a3b"
+    }
+  },
+  "required": [
+    "block_key"
+  ]
+}

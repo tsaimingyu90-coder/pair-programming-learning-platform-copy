@@ -1,0 +1,59 @@
+{
+  "name": "SecurityAlertLog",
+  "type": "object",
+  "properties": {
+    "alert_type": {
+      "type": "string",
+      "description": "\u544a\u8b66\u985e\u578b\uff1aprompt_injection_surge, brute_force_login, sensitive_action_blocked, multi_event_surge, high_risk_immediate"
+    },
+    "risk_level": {
+      "type": "string",
+      "enum": [
+        "low",
+        "medium",
+        "high"
+      ],
+      "default": "medium"
+    },
+    "sent_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "participant_id": {
+      "type": "string",
+      "description": "\u89f8\u767c\u544a\u8b66\u7684\u53c3\u8207\u8005\uff08\u82e5\u9069\u7528\uff09"
+    },
+    "event_count": {
+      "type": "number",
+      "description": "\u7d71\u8a08\u671f\u9593\u5167\u7684\u4e8b\u4ef6\u6578\u91cf"
+    },
+    "event_types": {
+      "type": "string",
+      "description": "\u89f8\u767c\u7684\u5b89\u5168\u4e8b\u4ef6\u985e\u578b\u5217\u8868\uff08\u9017\u865f\u5206\u9694\uff09"
+    },
+    "summary": {
+      "type": "string",
+      "description": "\u544a\u8b66\u6458\u8981"
+    },
+    "cooldown_key": {
+      "type": "string",
+      "description": "\u7528\u65bc cooldown \u5224\u65b7\u7684\u552f\u4e00\u9375"
+    },
+    "email_to": {
+      "type": "string",
+      "description": "\u5bc4\u9001\u5c0d\u8c61 email"
+    },
+    "email_sent": {
+      "type": "boolean",
+      "default": true
+    },
+    "send_error": {
+      "type": "string",
+      "description": "\u82e5\u5bc4\u9001\u5931\u6557\uff0c\u8a18\u9304\u932f\u8aa4\u8a0a\u606f"
+    }
+  },
+  "required": [
+    "alert_type",
+    "sent_at"
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "name": "PerformanceLog",
+  "type": "object",
+  "properties": {
+    "event_type": {
+      "type": "string",
+      "description": "\u5b50\u4e8b\u4ef6\u540d\u7a31\uff0c\u5982 task_assignment_load, week_attempt_load, login_success"
+    },
+    "page": {
+      "type": "string",
+      "description": "\u9801\u9762\u540d\u7a31\uff1aCheckIn / WeekSelection / TaskPage / Register"
+    },
+    "duration_ms": {
+      "type": "number",
+      "description": "\u64cd\u4f5c\u8017\u6642\uff08\u6beb\u79d2\uff09"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "success",
+        "error",
+        "timeout"
+      ],
+      "description": "\u57f7\u884c\u7d50\u679c\u72c0\u614b"
+    },
+    "participant_id": {
+      "type": "string",
+      "description": "\u53c3\u8207\u8005 ID\uff08\u82e5\u5df2\u77e5\uff09"
+    },
+    "network_downlink": {
+      "type": "number",
+      "description": "\u7db2\u8def\u4e0b\u884c\u901f\u5ea6 Mbps"
+    },
+    "network_rtt": {
+      "type": "number",
+      "description": "\u7db2\u8def RTT \u6beb\u79d2"
+    },
+    "network_type": {
+      "type": "string",
+      "description": "\u7db2\u8def\u985e\u578b\uff08wifi, cellular, 4g \u7b49\uff09"
+    },
+    "meta": {
+      "type": "string",
+      "description": "JSON \u5b57\u4e32\uff0c\u5b58\u984d\u5916\u8cc7\u8a0a\uff08\u5982 assignment_id, count\uff09"
+    }
+  },
+  "required": [
+    "event_type",
+    "page"
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "name": "UserPrompt",
+  "type": "object",
+  "properties": {
+    "participant_id": {
+      "type": "string",
+      "description": "Reference to Participant ID"
+    },
+    "content": {
+      "type": "string",
+      "description": "\u63d0\u793a\u8a5e\u5167\u5bb9"
+    },
+    "label": {
+      "type": "string",
+      "description": "\u63d0\u793a\u8a5e\u6a19\u984c\uff08\u9078\u586b\uff09"
+    },
+    "order": {
+      "type": "number",
+      "description": "\u6392\u5e8f\u9806\u5e8f",
+      "default": 0
+    }
+  },
+  "required": [
+    "participant_id",
+    "content"
+  ]
+}

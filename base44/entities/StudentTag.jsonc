@@ -1,0 +1,23 @@
+{
+  "name": "StudentTag",
+  "type": "object",
+  "properties": {
+    "participant_id": {
+      "type": "string",
+      "description": "Participant database ID"
+    },
+    "label": {
+      "type": "string",
+      "description": "Tag text"
+    },
+    "color": {
+      "type": "string",
+      "description": "Tag color class (e.g. blue, red, green)",
+      "default": "blue"
+    }
+  },
+  "required": [
+    "participant_id",
+    "label"
+  ]
+}

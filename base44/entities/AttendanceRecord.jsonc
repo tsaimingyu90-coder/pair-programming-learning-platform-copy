@@ -1,0 +1,62 @@
+{
+  "name": "AttendanceRecord",
+  "type": "object",
+  "properties": {
+    "participant_id": {
+      "type": "string",
+      "description": "\u53c3\u8207\u8005 ID\uff08\u5982 SA001\uff09"
+    },
+    "participant_db_id": {
+      "type": "string",
+      "description": "\u53c3\u8207\u8005\u8cc7\u6599\u5eab ID"
+    },
+    "week_number": {
+      "type": "number",
+      "description": "\u9031\u6b21\uff081-6\uff09",
+      "minimum": 1,
+      "maximum": 6
+    },
+    "period_number": {
+      "type": "number",
+      "description": "\u7bc0\u6b21\uff081-8\uff09\uff0c0 \u8868\u793a\u820a\u683c\u5f0f\u6574\u9031\u8a18\u9304",
+      "minimum": 0,
+      "maximum": 8,
+      "default": 0
+    },
+    "class_id": {
+      "type": "string",
+      "description": "\u73ed\u7d1a\uff08\u5982\u96fb\u5b50\u4e8c\u7532\uff09"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "\u51fa\u5e2d",
+        "\u7f3a\u5e2d",
+        "\u9072\u5230",
+        "\u65e9\u9000",
+        "\u516c\u5047",
+        "\u75c5\u5047"
+      ],
+      "default": "\u51fa\u5e2d",
+      "description": "\u51fa\u7f3a\u52e4\u72c0\u614b"
+    },
+    "note": {
+      "type": "string",
+      "description": "\u5099\u8a3b"
+    },
+    "recorded_by": {
+      "type": "string",
+      "description": "\u8a18\u9304\u8005 email"
+    },
+    "recorded_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "\u8a18\u9304\u6642\u9593"
+    }
+  },
+  "required": [
+    "participant_id",
+    "week_number",
+    "status"
+  ]
+}

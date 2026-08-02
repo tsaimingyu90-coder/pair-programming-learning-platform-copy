@@ -1,0 +1,48 @@
+{
+  "name": "GradingRecord",
+  "type": "object",
+  "properties": {
+    "attempt_id": {
+      "type": "string",
+      "description": "Reference to Attempt ID"
+    },
+    "participant_id": {
+      "type": "string",
+      "description": "Reference to Participant ID"
+    },
+    "assignment_id": {
+      "type": "string",
+      "description": "Assignment ID"
+    },
+    "version": {
+      "type": "number",
+      "description": "Grading version number (1, 2, 3...)"
+    },
+    "original_code": {
+      "type": "string",
+      "description": "Original student submitted code"
+    },
+    "annotation": {
+      "type": "string",
+      "description": "Teacher's text annotation on code"
+    },
+    "note_annotation": {
+      "type": "string",
+      "description": "Teacher's annotation on student notes/\u5099\u8a3b"
+    },
+    "canvas_image_url": {
+      "type": "string",
+      "description": "URL of annotated screenshot canvas image"
+    },
+    "graded_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "When grading was saved"
+    }
+  },
+  "required": [
+    "attempt_id",
+    "participant_id",
+    "version"
+  ]
+}

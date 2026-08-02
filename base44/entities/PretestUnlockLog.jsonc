@@ -1,0 +1,62 @@
+{
+  "name": "PretestUnlockLog",
+  "type": "object",
+  "properties": {
+    "participant_id": {
+      "type": "string",
+      "description": "Participant ID string (e.g. AA001)"
+    },
+    "participant_db_id": {
+      "type": "string",
+      "description": "Participant database ID"
+    },
+    "unlocked_by": {
+      "type": "string",
+      "description": "Email of admin who unlocked"
+    },
+    "unlocked_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "When the unlock was performed"
+    },
+    "unlock_type": {
+      "type": "string",
+      "enum": [
+        "pretest"
+      ],
+      "default": "pretest"
+    },
+    "pretest_part": {
+      "type": "string",
+      "enum": [
+        "P1",
+        "P2",
+        "P3"
+      ],
+      "description": "Which pretest part was unlocked: P1=Quiz, P2=Anxiety, P3=Efficacy"
+    },
+    "source_page": {
+      "type": "string",
+      "enum": [
+        "TeacherDashboard",
+        "AssignmentManager"
+      ],
+      "description": "Which page the unlock was triggered from"
+    },
+    "reason": {
+      "type": "string",
+      "description": "Optional reason for unlocking"
+    },
+    "is_active": {
+      "type": "boolean",
+      "description": "Whether this unlock is still active (student hasn't re-submitted yet)",
+      "default": true
+    }
+  },
+  "required": [
+    "participant_id",
+    "participant_db_id",
+    "unlocked_by",
+    "unlocked_at"
+  ]
+}

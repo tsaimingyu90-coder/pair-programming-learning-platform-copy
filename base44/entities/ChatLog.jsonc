@@ -1,0 +1,74 @@
+{
+  "name": "ChatLog",
+  "type": "object",
+  "properties": {
+    "participant": {
+      "type": "string",
+      "description": "Reference to Participant ID"
+    },
+    "attempt": {
+      "type": "string",
+      "description": "Reference to Attempt ID"
+    },
+    "role": {
+      "type": "string",
+      "enum": [
+        "user",
+        "model"
+      ],
+      "description": "Who sent the message"
+    },
+    "content": {
+      "type": "string",
+      "description": "Message content (actual content sent to AI)"
+    },
+    "display_content": {
+      "type": "string",
+      "description": "Short display version shown in the chat UI (for system prompts)"
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time",
+      "description": "When the message was sent"
+    },
+    "llm_model": {
+      "type": "string",
+      "description": "Language model used (e.g. gemini-2.5-flash)"
+    },
+    "temperature": {
+      "type": "number",
+      "description": "Temperature setting used"
+    },
+    "max_output_tokens": {
+      "type": "number",
+      "description": "maxOutputTokens setting used"
+    },
+    "tokens_in": {
+      "type": "number",
+      "description": "Input token count for this API call (promptTokenCount)"
+    },
+    "tokens_out": {
+      "type": "number",
+      "description": "Output token count for this API call (candidatesTokenCount)"
+    },
+    "is_system_prompt": {
+      "type": "boolean",
+      "description": "Whether this message is an app-generated system prompt or auto-continuation (not typed by user)",
+      "default": false
+    },
+    "raw_reply": {
+      "type": "string",
+      "description": "Original unfiltered reply from Gemini (only for model role)"
+    },
+    "is_filtered": {
+      "type": "boolean",
+      "description": "Whether this model reply was filtered and replaced with safe reply",
+      "default": false
+    }
+  },
+  "required": [
+    "participant",
+    "role",
+    "content"
+  ]
+}

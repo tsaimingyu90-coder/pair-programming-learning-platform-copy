@@ -1,0 +1,58 @@
+{
+  "name": "QuizResult",
+  "type": "object",
+  "properties": {
+    "participant": {
+      "type": "string",
+      "description": "Reference to Participant ID"
+    },
+    "survey_type": {
+      "type": "string",
+      "enum": [
+        "pre",
+        "post"
+      ],
+      "description": "\u524d\u6e2c\u6216\u5f8c\u6e2c"
+    },
+    "answers": {
+      "type": "object",
+      "description": "JSON object: { questionNumber: selectedOption }"
+    },
+    "score": {
+      "type": "number",
+      "description": "Total score out of 100"
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "version_no": {
+      "type": "number",
+      "description": "Version number: 1 = first attempt, 2 = second, etc.",
+      "default": 1
+    },
+    "is_original": {
+      "type": "boolean",
+      "description": "True for the first-ever submission (baseline)",
+      "default": true
+    },
+    "is_latest": {
+      "type": "boolean",
+      "description": "True for the most recent submission",
+      "default": true
+    },
+    "unlocked_by": {
+      "type": "string",
+      "description": "Email of admin who unlocked this redo (null for first attempt)"
+    },
+    "unlocked_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "When the unlock was performed"
+    }
+  },
+  "required": [
+    "participant",
+    "survey_type"
+  ]
+}

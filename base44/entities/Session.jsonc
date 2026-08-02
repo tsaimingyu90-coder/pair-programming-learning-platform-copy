@@ -1,0 +1,27 @@
+{
+  "name": "Session",
+  "type": "object",
+  "properties": {
+    "session_id": {
+      "type": "string",
+      "description": "Unique session identifier, e.g. W1"
+    },
+    "title": {
+      "type": "string",
+      "description": "Session title"
+    },
+    "start_time": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Session start time"
+    },
+    "end_time": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Session end time"
+    }
+  },
+  "required": [
+    "session_id"
+  ]
+}

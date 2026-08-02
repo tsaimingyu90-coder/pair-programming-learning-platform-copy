@@ -1,0 +1,27 @@
+{
+  "name": "ExampleNote",
+  "type": "object",
+  "properties": {
+    "participant": {
+      "type": "string",
+      "description": "Reference to Participant ID"
+    },
+    "assignment_id": {
+      "type": "string",
+      "description": "Assignment ID, e.g. W1_T1"
+    },
+    "content": {
+      "type": "string",
+      "description": "Edited example code with student annotations"
+    },
+    "submitted_at": {
+      "type": "string",
+      "format": "date-time"
+    }
+  },
+  "required": [
+    "participant",
+    "assignment_id",
+    "content"
+  ]
+}

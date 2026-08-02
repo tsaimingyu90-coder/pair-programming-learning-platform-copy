@@ -1,0 +1,45 @@
+{
+  "name": "PreviewAttempt",
+  "type": "object",
+  "properties": {
+    "preview_session_id": {
+      "type": "string",
+      "description": "Unique preview session identifier"
+    },
+    "source_participant_id": {
+      "type": "string",
+      "description": "Original participant ID being previewed"
+    },
+    "assignment_id": {
+      "type": "string",
+      "description": "Assignment ID string"
+    },
+    "start_ts": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "end_ts": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "code_text": {
+      "type": "string"
+    },
+    "link_url": {
+      "type": "string"
+    },
+    "submit_type": {
+      "type": "string"
+    },
+    "difficulty": {
+      "type": "number"
+    },
+    "notes": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "preview_session_id",
+    "source_participant_id"
+  ]
+}

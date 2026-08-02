@@ -1,0 +1,54 @@
+{
+  "name": "QuestionBank",
+  "type": "object",
+  "properties": {
+    "survey_type": {
+      "type": "string",
+      "enum": [
+        "pre",
+        "post"
+      ],
+      "description": "\u524d\u6e2c\u6216\u5f8c\u6e2c",
+      "default": "pre"
+    },
+    "questionNumber": {
+      "type": "number",
+      "description": "\u984c\u865f"
+    },
+    "questionContent": {
+      "type": "string",
+      "description": "\u984c\u76ee\u5167\u5bb9"
+    },
+    "OptionA_Content": {
+      "type": "string",
+      "description": "\u9078\u9805 A"
+    },
+    "OptionB_Content": {
+      "type": "string",
+      "description": "\u9078\u9805 B"
+    },
+    "OptionC_Content": {
+      "type": "string",
+      "description": "\u9078\u9805 C"
+    },
+    "OptionD_Content": {
+      "type": "string",
+      "description": "\u9078\u9805 D"
+    },
+    "correctAnswer": {
+      "type": "string",
+      "enum": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "description": "\u6b63\u78ba\u7b54\u6848"
+    }
+  },
+  "required": [
+    "questionNumber",
+    "questionContent",
+    "correctAnswer"
+  ]
+}

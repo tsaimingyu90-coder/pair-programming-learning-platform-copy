@@ -1,0 +1,33 @@
+{
+  "name": "ClassWeekDate",
+  "type": "object",
+  "properties": {
+    "class_id": {
+      "type": "string",
+      "description": "\u73ed\u7d1a ID\uff08\u5982\u96fb\u5b50\u4e8c\u7532\uff09"
+    },
+    "week_number": {
+      "type": "number",
+      "description": "\u9031\u6b21\uff081-6\uff09",
+      "minimum": 1,
+      "maximum": 6
+    },
+    "date": {
+      "type": "string",
+      "format": "date",
+      "description": "\u4e0a\u8ab2\u65e5\u671f\uff08YYYY-MM-DD\uff09"
+    },
+    "periods": {
+      "type": "array",
+      "items": {
+        "type": "number"
+      },
+      "description": "\u4e0a\u8ab2\u7bc0\u6b21\u9663\u5217\uff0c\u5982 [1, 2, 3]",
+      "default": []
+    }
+  },
+  "required": [
+    "class_id",
+    "week_number"
+  ]
+}

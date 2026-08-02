@@ -1,0 +1,17 @@
+{
+  "name": "FeedbackTemplate",
+  "type": "object",
+  "properties": {
+    "content": {
+      "type": "string",
+      "description": "\u8a55\u8a9e\u5167\u5bb9"
+    },
+    "order": {
+      "type": "number",
+      "description": "\u6392\u5e8f\u9806\u5e8f"
+    }
+  },
+  "required": [
+    "content"
+  ]
+}

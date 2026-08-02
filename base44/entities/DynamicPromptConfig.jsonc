@@ -1,0 +1,54 @@
+{
+  "name": "DynamicPromptConfig",
+  "type": "object",
+  "properties": {
+    "role": {
+      "type": "string",
+      "enum": [
+        "driver",
+        "navigator",
+        "solo"
+      ],
+      "description": "\u9069\u7528\u89d2\u8272"
+    },
+    "enabled_blocks": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "\u555f\u7528\u7684 block key \u5217\u8868\uff0c\u5982 roleLock, roleBody, answerGuard, platformRules",
+      "default": []
+    },
+    "block_overrides": {
+      "type": "object",
+      "description": "\u81ea\u8a02 block \u5167\u5bb9\uff0ckey \u70ba block key\uff0cvalue \u70ba prompt \u5167\u5bb9",
+      "default": {}
+    },
+    "display_prompt": {
+      "type": "string",
+      "description": "\u5c0d\u8a71\u6846\u986f\u793a\u6587\u5b57\uff08\u5b78\u751f\u770b\u5230\u7684\u7c21\u77ed\u4ecb\u7d39\uff09\uff0c\u652f\u63f4 {{participant_id}}\u3001{{prompt_text}}\u3001{{role}} placeholder"
+    },
+    "inject_prompt_text": {
+      "type": "boolean",
+      "description": "\u662f\u5426\u6ce8\u5165\u4efb\u52d9\u984c\u76ee",
+      "default": false
+    },
+    "inject_reference_answer": {
+      "type": "boolean",
+      "description": "\u662f\u5426\u6ce8\u5165\u53c3\u8003\u7b54\u6848",
+      "default": false
+    },
+    "saved_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "\u5132\u5b58\u6642\u9593"
+    },
+    "saved_by": {
+      "type": "string",
+      "description": "\u5132\u5b58\u8005 email"
+    }
+  },
+  "required": [
+    "role"
+  ]
+}

@@ -1,0 +1,60 @@
+{
+  "name": "Participant",
+  "type": "object",
+  "properties": {
+    "participant_id": {
+      "type": "string",
+      "description": "Unique participant identifier"
+    },
+    "name": {
+      "type": "string",
+      "description": "Participant full name"
+    },
+    "student_id": {
+      "type": "string",
+      "description": "Student ID number"
+    },
+    "password": {
+      "type": "string",
+      "description": "Login password"
+    },
+    "class_id": {
+      "type": "string",
+      "description": "Class identifier"
+    },
+    "gender": {
+      "type": "string",
+      "enum": [
+        "\u7537",
+        "\u5973",
+        "\u5176\u4ed6"
+      ],
+      "description": "Gender"
+    },
+    "years_experience": {
+      "type": "number",
+      "description": "Years of programming experience (in 0.5 increments)"
+    },
+    "group": {
+      "type": "string",
+      "enum": [
+        "AI_Pair",
+        "AI_Solo"
+      ],
+      "description": "Study group assignment"
+    },
+    "consent": {
+      "type": "boolean",
+      "description": "Whether participant has given consent",
+      "default": false
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Record creation timestamp"
+    }
+  },
+  "required": [
+    "participant_id"
+  ]
+}

@@ -1,0 +1,62 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --navy: #0f172a;
+  --navy-light: #1e293b;
+  --cream: #faf8f4;
+  --cream-dark: #f0ebe2;
+  --accent: #6366f1;
+  --accent-light: #818cf8;
+  --gold: #d4a853;
+  --text-primary: #0f172a;
+  --text-muted: #64748b;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--cream);
+  color: var(--text-primary);
+  -webkit-font-smoothing: antialiased;
+}
+
+.prose-study {
+  line-height: 1.7;
+}
+
+.prose-study p { margin: 0.5rem 0; }
+.prose-study ul { margin: 0.5rem 0; padding-left: 1.5rem; }
+.prose-study li { margin: 0.25rem 0; }
+.prose-study strong { color: var(--navy); font-weight: 600; }
+.prose-study code {
+  background: #f1f5f9;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 0.85em;
+  font-family: 'Courier New', monospace;
+}
+.prose-study pre {
+  background: #1e293b;
+  color: #e2e8f0;
+  padding: 1rem;
+  border-radius: 8px;
+  overflow-x: auto;
+  margin: 0.75rem 0;
+}
+.prose-study h1, .prose-study h2, .prose-study h3 {
+  font-weight: 600;
+  margin: 0.75rem 0 0.25rem;
+}
+
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #94a3b8; }

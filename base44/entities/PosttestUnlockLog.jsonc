@@ -1,0 +1,58 @@
+{
+  "name": "PosttestUnlockLog",
+  "type": "object",
+  "properties": {
+    "participant_id": {
+      "type": "string",
+      "description": "Participant ID string (e.g. AA001)"
+    },
+    "participant_db_id": {
+      "type": "string",
+      "description": "Participant database ID"
+    },
+    "posttest_part": {
+      "type": "string",
+      "enum": [
+        "P1",
+        "P2",
+        "P3",
+        "P4",
+        "all"
+      ],
+      "description": "Which posttest part was unlocked: P1=Quiz, P2=Anxiety, P3=Efficacy, P4=Collaboration. 'all' = legacy unlock for all parts",
+      "default": "all"
+    },
+    "unlocked_by": {
+      "type": "string",
+      "description": "Email of admin who unlocked"
+    },
+    "unlocked_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "When the unlock was performed"
+    },
+    "source_page": {
+      "type": "string",
+      "enum": [
+        "AssignmentManager",
+        "TeacherDashboard"
+      ],
+      "description": "Which page the unlock was triggered from"
+    },
+    "reason": {
+      "type": "string",
+      "description": "Optional reason for unlocking"
+    },
+    "is_active": {
+      "type": "boolean",
+      "description": "Whether this unlock is still active (student hasn't submitted yet)",
+      "default": true
+    }
+  },
+  "required": [
+    "participant_id",
+    "participant_db_id",
+    "unlocked_by",
+    "unlocked_at"
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "name": "SystemPrompt",
+  "type": "object",
+  "properties": {
+    "label": {
+      "type": "string",
+      "description": "\u986f\u793a\u540d\u7a31\uff0c\u65b9\u4fbf\u8b58\u5225\u7528\u9014"
+    },
+    "role": {
+      "type": "string",
+      "enum": [
+        "driver",
+        "navigator",
+        "solo"
+      ],
+      "description": "\u9069\u7528\u89d2\u8272\uff1adriver=\u5b78\u751f\u7576\u5c0e\u822a\u54e1\u3001navigator=AI\u7576\u5c0e\u822a\u54e1\u3001solo=Solo\u6a21\u5f0f"
+    },
+    "scope": {
+      "type": "string",
+      "enum": [
+        "global",
+        "task"
+      ],
+      "description": "global=\u6240\u6709\u4efb\u52d9\u9069\u7528\u3001task=\u6307\u5b9a\u4efb\u52d9\u5c08\u5c6c",
+      "default": "global"
+    },
+    "assignment_id": {
+      "type": "string",
+      "description": "\u4efb\u52d9 ID\uff08\u4f8b\u5982 W1_T1\uff09\uff0cscope=task \u6642\u586b\u5beb"
+    },
+    "full_prompt": {
+      "type": "string",
+      "description": "\u5b8c\u6574\u767c\u9001\u7d66 Gemini \u7684 system prompt"
+    },
+    "display_prompt": {
+      "type": "string",
+      "description": "\u986f\u793a\u5728\u5c0d\u8a71\u6846\u4e2d\u7684\u7c21\u77ed\u8aaa\u660e\uff08\u9078\u586b\uff09"
+    },
+    "is_active": {
+      "type": "boolean",
+      "description": "\u662f\u5426\u555f\u7528",
+      "default": true
+    }
+  },
+  "required": [
+    "label",
+    "role",
+    "full_prompt"
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "name": "Survey",
+  "type": "object",
+  "properties": {
+    "participant": {
+      "type": "string",
+      "description": "Reference to Participant ID"
+    },
+    "survey_type": {
+      "type": "string",
+      "enum": [
+        "pre",
+        "post"
+      ],
+      "description": "Whether this is a pre or post survey"
+    },
+    "session": {
+      "type": "string",
+      "description": "Reference to Session ID (optional)"
+    },
+    "anxiety_total": {
+      "type": "number",
+      "description": "Anxiety scale total score"
+    },
+    "efficacy_total": {
+      "type": "number",
+      "description": "Self-efficacy scale total score"
+    },
+    "feedback": {
+      "type": "string",
+      "description": "Open-ended feedback"
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time",
+      "description": "When the survey was submitted"
+    }
+  },
+  "required": [
+    "participant",
+    "survey_type"
+  ]
+}

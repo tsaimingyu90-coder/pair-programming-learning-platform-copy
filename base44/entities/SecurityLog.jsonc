@@ -1,0 +1,48 @@
+{
+  "name": "SecurityLog",
+  "type": "object",
+  "properties": {
+    "timestamp": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "page": {
+      "type": "string"
+    },
+    "participant_id": {
+      "type": "string"
+    },
+    "event_type": {
+      "type": "string",
+      "enum": [
+        "suspicious_prompt_injection",
+        "rate_limit_hit",
+        "repeated_login_attempt",
+        "blocked_sensitive_action",
+        "invalid_import_data",
+        "suspicious_input_length",
+        "unsafe_render_attempt"
+      ]
+    },
+    "risk_level": {
+      "type": "string",
+      "enum": [
+        "low",
+        "medium",
+        "high"
+      ],
+      "default": "medium"
+    },
+    "message": {
+      "type": "string"
+    },
+    "meta": {
+      "type": "string",
+      "description": "JSON string with extra context"
+    }
+  },
+  "required": [
+    "event_type",
+    "page"
+  ]
+}

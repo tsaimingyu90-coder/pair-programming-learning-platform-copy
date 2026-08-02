@@ -1,0 +1,116 @@
+{
+  "name": "Attempt",
+  "type": "object",
+  "properties": {
+    "participant": {
+      "type": "string",
+      "description": "Reference to Participant ID"
+    },
+    "session": {
+      "type": "string",
+      "description": "Reference to Session ID"
+    },
+    "assignment": {
+      "type": "string",
+      "description": "Reference to Assignment ID"
+    },
+    "start_ts": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Attempt start timestamp"
+    },
+    "end_ts": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Attempt end timestamp"
+    },
+    "code_text": {
+      "type": "string",
+      "description": "Submitted code or text"
+    },
+    "link_url": {
+      "type": "string",
+      "description": "Submitted link URL"
+    },
+    "submit_type": {
+      "type": "string",
+      "enum": [
+        "paste",
+        "upload",
+        "link"
+      ],
+      "description": "How the submission was made"
+    },
+    "ai_used": {
+      "type": "boolean",
+      "description": "Whether AI was used",
+      "default": false
+    },
+    "ai_minutes": {
+      "type": "number",
+      "description": "System-calculated total AI interaction time in minutes (session-based)"
+    },
+    "ai_turns": {
+      "type": "number",
+      "description": "Total number of user messages sent to AI in this Attempt",
+      "default": 0
+    },
+    "ai_sessions_count": {
+      "type": "number",
+      "description": "Number of detected AI interaction sessions (gap threshold: 5 min)",
+      "default": 0
+    },
+    "avg_ai_gap_minutes": {
+      "type": "number",
+      "description": "Average gap in minutes between consecutive user messages"
+    },
+    "difficulty": {
+      "type": "number",
+      "description": "Perceived difficulty rating (1-7)",
+      "minimum": 1,
+      "maximum": 7
+    },
+    "notes": {
+      "type": "string",
+      "description": "Additional notes"
+    },
+    "redo_count": {
+      "type": "number",
+      "description": "Number of times participant redid this task (0 = first attempt)",
+      "default": 0
+    },
+    "teacher_feedback": {
+      "type": "string",
+      "description": "Teacher's feedback and suggestions for this submission"
+    },
+    "teacher_rating": {
+      "type": "string",
+      "enum": [
+        "\u512a",
+        "\u7532",
+        "\u4e59",
+        "\u4e19",
+        "\u4e01"
+      ],
+      "description": "Teacher's five-level rating"
+    },
+    "allow_redo_override": {
+      "type": "boolean",
+      "description": "Admin override: allow student to redo even after teacher_rating is set",
+      "default": false
+    },
+    "redo_unlocked_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp when admin unlocked redo"
+    },
+    "redo_unlocked_by": {
+      "type": "string",
+      "description": "Admin email who unlocked redo"
+    }
+  },
+  "required": [
+    "participant",
+    "assignment"
+  ]
+}

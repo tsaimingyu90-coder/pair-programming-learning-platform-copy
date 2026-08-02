@@ -1,0 +1,59 @@
+{
+  "name": "PreviewChatLog",
+  "type": "object",
+  "properties": {
+    "preview_session_id": {
+      "type": "string",
+      "description": "Unique preview session identifier"
+    },
+    "source_participant_id": {
+      "type": "string",
+      "description": "Original participant ID being previewed"
+    },
+    "role": {
+      "type": "string",
+      "enum": [
+        "user",
+        "model"
+      ],
+      "description": "Who sent the message"
+    },
+    "content": {
+      "type": "string",
+      "description": "Message content"
+    },
+    "display_content": {
+      "type": "string",
+      "description": "Short display version"
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "llm_model": {
+      "type": "string"
+    },
+    "temperature": {
+      "type": "number"
+    },
+    "max_output_tokens": {
+      "type": "number"
+    },
+    "is_system_prompt": {
+      "type": "boolean",
+      "default": false
+    },
+    "raw_reply": {
+      "type": "string"
+    },
+    "is_filtered": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "required": [
+    "preview_session_id",
+    "role",
+    "content"
+  ]
+}

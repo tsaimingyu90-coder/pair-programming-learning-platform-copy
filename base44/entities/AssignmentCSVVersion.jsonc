@@ -1,0 +1,46 @@
+{
+  "name": "AssignmentCSVVersion",
+  "type": "object",
+  "properties": {
+    "version_id": {
+      "type": "string",
+      "description": "\u7248\u672c\u552f\u4e00\u8b58\u5225\u78bc\uff08\u6642\u9593\u6233+\u96a8\u6a5f\u78bc\uff09"
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "\u5efa\u7acb\u6642\u9593"
+    },
+    "created_by": {
+      "type": "string",
+      "description": "\u64cd\u4f5c\u8005 email"
+    },
+    "description": {
+      "type": "string",
+      "enum": [
+        "import_before",
+        "import_after",
+        "manual"
+      ],
+      "description": "\u64cd\u4f5c\u985e\u578b\uff1a\u532f\u5165\u524d\u5099\u4efd\u3001\u532f\u5165\u5f8c\u3001\u624b\u52d5\u7de8\u8f2f"
+    },
+    "record_count": {
+      "type": "number",
+      "description": "\u8a72\u7248\u672c\u4e2d\u7684 assignment \u7b46\u6578"
+    },
+    "data": {
+      "type": "string",
+      "description": "\u5b8c\u6574 assignments \u8cc7\u6599\u7684 JSON \u5b57\u7b26\u4e32\uff08snapshot\uff09"
+    },
+    "notes": {
+      "type": "string",
+      "description": "\u5099\u8a3b\uff08\u53ef\u9078\uff09"
+    }
+  },
+  "required": [
+    "version_id",
+    "created_by",
+    "description",
+    "data"
+  ]
+}
