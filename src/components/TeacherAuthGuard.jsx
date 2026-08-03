@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 
-const TEACHER_USERNAME = "admin4786";
-const TEACHER_PASSWORD = "7876277";
+const TEACHER_USERNAME = "admin_mmn";
+const TEACHER_PASSWORD = "mmn";
 const STORAGE_KEY = "teacher_auth_token";
 
 function getAuth() {
