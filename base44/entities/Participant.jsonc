@@ -8,11 +8,11 @@
     },
     "name": {
       "type": "string",
-      "description": "Participant full name"
+      "description": "Participant full name (de-identified: cleared)"
     },
     "student_id": {
       "type": "string",
-      "description": "Student ID number"
+      "description": "Student ID number (de-identified: cleared)"
     },
     "password": {
       "type": "string",
