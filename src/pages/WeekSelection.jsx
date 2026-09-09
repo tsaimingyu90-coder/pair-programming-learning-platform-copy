@@ -179,6 +179,7 @@ export default function WeekSelection() {
            const allTasks = Object.values(weekGroups).flat();
            // Only count tasks that are open (same logic as card rendering)
            const openTasks = allTasks.filter(t => {
+             if (t.week_number === 1) return true;
              const classAv = availabilities.find(av =>
                (av?.assignment?.id || av?.assignment || av?.assignment_id) === t.id
              );
@@ -248,7 +249,7 @@ export default function WeekSelection() {
                     const classAv = availabilities.find(av =>
                       (av?.assignment?.id || av?.assignment || av?.assignment_id) === task.id
                     );
-                    const isNotOpen = classAv !== undefined ? !classAv.is_open : task.is_open !== true;
+                    const isNotOpen = task.week_number === 1 ? false : (classAv !== undefined ? !classAv.is_open : task.is_open !== true);
 
                     const taskCardBase = {
                       borderRadius: 14,
