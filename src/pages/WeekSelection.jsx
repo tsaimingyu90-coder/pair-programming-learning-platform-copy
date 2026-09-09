@@ -174,138 +174,6 @@ export default function WeekSelection() {
           </div>
         </div>
 
-        {/* Pre-test survey status */}
-        {(() => {
-          const allDone = quizDone && anxietyDone && efficacyDone;
-          const surveys = [
-            {
-              label: "第一部分：學習成就測驗",
-              done: quizDone,
-              href: `/QuizPage?type=pre&id=${participant.participant_id}`,
-              unlocked: pretestUnlocks.some(l => !l.pretest_part || l.pretest_part === "P1"),
-            },
-            {
-              label: "第二部分：程式設計焦慮量表",
-              done: anxietyDone,
-              href: `/ScalePage?type=pre&part=2&id=${participant.participant_id}`,
-              unlocked: pretestUnlocks.some(l => !l.pretest_part || l.pretest_part === "P2"),
-            },
-            {
-              label: "第三部分：自我效能感量表",
-              done: efficacyDone,
-              href: `/ScalePage?type=pre&part=3&id=${participant.participant_id}`,
-              unlocked: pretestUnlocks.some(l => !l.pretest_part || l.pretest_part === "P3"),
-            },
-          ];
-          return (
-            <div className="p-5 mb-6" style={{ ...glassCard, background: allDone ? "rgba(52,199,89,0.08)" : "rgba(255,149,0,0.08)", border: allDone ? "1px solid rgba(52,199,89,0.3)" : "1px solid rgba(255,149,0,0.35)" }}>
-              <div className="flex items-center gap-2 mb-3">
-                <span className="text-lg">{allDone ? "✓" : "⚠️"}</span>
-                <p className="text-sm font-semibold" style={{ color: allDone ? "#1a7f37" : "#b45309" }}>
-                  {allDone ? "前測已全部完成，可以開始進行任務。" : "請先完成所有前測問卷，才能開始任務。"}
-                </p>
-              </div>
-              <div className="flex flex-col sm:flex-row gap-2">
-                {surveys.map((s, i) => (
-                  s.done && !s.unlocked ? (
-                    <div key={i} className="flex-1 flex items-center justify-between px-4 py-2.5 rounded-xl text-sm font-medium" style={{ background: "rgba(52,199,89,0.12)", border: "1px solid rgba(52,199,89,0.3)", color: "#1a7f37" }}>
-                      <span>{s.label}</span>
-                      <span className="ml-2 text-xs font-semibold">✓ 已完成</span>
-                    </div>
-                  ) : (
-                    <a key={i} href={s.href} className="flex-1 flex items-center justify-between px-4 py-2.5 rounded-xl text-sm font-medium transition" style={s.unlocked ? { background: "rgba(255,149,0,0.10)", border: "1px solid rgba(255,149,0,0.4)", color: "#b45309" } : { background: "rgba(255,255,255,0.7)", border: "1px solid rgba(255,149,0,0.4)", color: "#92400e" }}>
-                      <span>{s.label}</span>
-                      <span className="ml-2 text-xs font-semibold whitespace-nowrap">{s.unlocked ? "↻ 重做 →" : "前往 →"}</span>
-                    </a>
-                  )
-                ))}
-              </div>
-            </div>
-          );
-        })()}
-
-        {/* Post-test survey section */}
-        {(() => {
-          const isPartUnlocked = (partKey) =>
-            posttestUnlockLogs.some(l =>
-              l.is_active && (l.posttest_part === partKey || l.posttest_part === "all" || !l.posttest_part)
-            );
-
-          const postAllDone = postAnxietyDone && postEfficacyDone && postCollabDone;
-          const postSurveys = [
-            {
-              label: "第一部分：學習成就測驗",
-              done: postQuizDone,
-              unlocked: isPartUnlocked("P1"),
-              href: `/QuizPage?type=post&id=${participant.participant_id}`,
-            },
-            {
-              label: "第二部分：程式設計焦慮量表",
-              done: postAnxietyDone,
-              unlocked: isPartUnlocked("P2"),
-              href: `/ScalePage?type=post&part=2&id=${participant.participant_id}`,
-            },
-            {
-              label: "第三部分：自我效能感量表",
-              done: postEfficacyDone,
-              unlocked: isPartUnlocked("P3"),
-              href: `/ScalePage?type=post&part=3&id=${participant.participant_id}`,
-            },
-            {
-              label: "第四部分：協作學習知覺量表",
-              done: postCollabDone,
-              unlocked: isPartUnlocked("P4"),
-              href: `/ScalePage?type=post&part=4&id=${participant.participant_id}`,
-            },
-          ];
-
-          const anyUnlocked = postSurveys.some(s => s.unlocked);
-
-          // Locked state: no parts unlocked and not all done
-          if (!anyUnlocked && !postAllDone) {
-            return (
-              <div className="p-5 mb-6 opacity-60" style={{ ...glassCard, background: "rgba(142,142,147,0.08)", border: "1px solid rgba(142,142,147,0.25)" }}>
-                <div className="flex items-center gap-2 mb-2">
-                  <span className="text-lg">🔒</span>
-                  <p className="text-sm font-semibold" style={{ color: "#6e6e73" }}>後測問卷（尚未開放）</p>
-                </div>
-                <p className="text-xs" style={{ color: "#aeaeb2" }}>後測尚未開放，請等待老師通知後再進行作答。</p>
-              </div>
-            );
-          }
-
-          return (
-            <div className="p-5 mb-6" style={{ ...glassCard, background: postAllDone ? "rgba(52,199,89,0.08)" : "rgba(0,122,255,0.06)", border: postAllDone ? "1px solid rgba(52,199,89,0.3)" : "1px solid rgba(0,122,255,0.25)" }}>
-              <div className="flex items-center gap-2 mb-3">
-                <span className="text-lg">{postAllDone ? "✓" : "📝"}</span>
-                <p className="text-sm font-semibold" style={{ color: postAllDone ? "#1a7f37" : "#0055cc" }}>
-                  後測問卷{postAllDone ? "已全部完成" : "（已開放，請儘速填寫）"}
-                </p>
-              </div>
-              <div className="flex flex-col sm:flex-row gap-2 flex-wrap">
-                {postSurveys.map((s, i) => (
-                  s.done ? (
-                    <div key={i} className="flex-1 min-w-0 flex items-center justify-between px-4 py-2.5 rounded-xl text-sm font-medium" style={{ background: "rgba(52,199,89,0.12)", border: "1px solid rgba(52,199,89,0.3)", color: "#1a7f37" }}>
-                      <span className="truncate">{s.label}</span>
-                      <span className="ml-2 text-xs font-semibold flex-shrink-0">✓ 已完成</span>
-                    </div>
-                  ) : s.unlocked ? (
-                    <a key={i} href={s.href} className="flex-1 min-w-0 flex items-center justify-between px-4 py-2.5 rounded-xl text-sm font-medium transition" style={{ background: "rgba(255,255,255,0.7)", border: "1px solid rgba(0,122,255,0.35)", color: "#0055cc" }}>
-                      <span className="truncate">{s.label}</span>
-                      <span className="ml-2 text-xs font-semibold flex-shrink-0">前往 →</span>
-                    </a>
-                  ) : (
-                    <div key={i} className="flex-1 min-w-0 flex items-center justify-between px-4 py-2.5 rounded-xl text-sm font-medium opacity-50 cursor-not-allowed" style={{ background: "rgba(142,142,147,0.1)", border: "1px solid rgba(142,142,147,0.2)", color: "#8e8e93" }}>
-                      <span className="truncate">{s.label}</span>
-                      <span className="ml-2 text-xs font-semibold flex-shrink-0">🔒 未開放</span>
-                    </div>
-                  )
-                ))}
-              </div>
-            </div>
-          );
-        })()}
-
         {/* Progress Summary */}
          {weeks.length > 0 && (() => {
            const allTasks = Object.values(weekGroups).flat();
@@ -376,7 +244,6 @@ export default function WeekSelection() {
                     const isInProgress = attempts.some(
                       a => getAttemptAssignmentId(a) === task.id && !a.end_ts
                     ) && !isCompleted;
-                    const isDisabled = !(quizDone && anxietyDone && efficacyDone);
                     const taskUrl = `/TaskPage?week=${task.week_number}&task=${task.task_number}&pid=${participant.id}`;
                     const classAv = availabilities.find(av =>
                       (av?.assignment?.id || av?.assignment || av?.assignment_id) === task.id
@@ -392,13 +259,7 @@ export default function WeekSelection() {
                       transition: "all 0.15s",
                     };
 
-                    return isDisabled ? (
-                      <div key={task.id} style={{ ...taskCardBase, background: "rgba(0,0,0,0.04)", border: "1px solid rgba(0,0,0,0.07)", opacity: 0.4, cursor: "not-allowed" }}>
-                        <div className="text-2xl font-bold mb-1" style={{ color: "#aeaeb2" }}>T{task.task_number}</div>
-                        <div className="text-xs truncate" style={{ color: "#aeaeb2" }} title={task.title}>{task.title || `任務 ${task.task_number}`}</div>
-                        <div className="mt-2 inline-flex items-center gap-1 text-xs px-2 py-0.5 rounded-full self-center" style={{ background: "rgba(0,0,0,0.06)", color: "#aeaeb2" }}>{task.allow_ai ? "AI ✓" : "AI ✗"}</div>
-                      </div>
-                    ) : isNotOpen ? (
+                    return isNotOpen ? (
                       <div key={task.id} style={{ ...taskCardBase, background: "rgba(0,0,0,0.04)", border: "1px solid rgba(0,0,0,0.07)", opacity: 0.55, cursor: "not-allowed" }}>
                         <div className="flex justify-center mb-2 min-h-6">
                           <span className="text-xs px-1.5 py-0.5 rounded-full font-medium" style={{ background: "rgba(142,142,147,0.2)", color: "#8e8e93" }}>🔒 未開放</span>
