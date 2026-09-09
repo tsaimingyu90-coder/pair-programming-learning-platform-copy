@@ -29,8 +29,7 @@ export default function Home() {
           className="mx-auto mb-5"
           style={{ width: 72, height: 72, borderRadius: 18, boxShadow: "0 4px 20px rgba(99,102,241,0.25)" }}
         />
-        <h1 className="text-2xl font-semibold mb-1" style={{ color: "#1d1d1f", letterSpacing: "-0.02em" }}>pAIr programming 學習平台</h1>
-        <p className="text-sm mb-8" style={{ color: "#6e6e73" }}>AI 輔助程式設計學習研究系統</p>
+        <h1 className="text-2xl font-semibold mb-8" style={{ color: "#1d1d1f", letterSpacing: "-0.02em" }}>程式設計實習學習平台</h1>
 
         <a
           href={createPageUrl("CheckIn")}
