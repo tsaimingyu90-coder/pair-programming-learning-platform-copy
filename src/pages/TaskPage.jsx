@@ -264,7 +264,10 @@ export default function TaskPage() {
       }
       // Block access: priority 1) class-level, 2) Assignment.is_open, 3) default closed
       let isBlocked = true; // default: blocked unless explicitly opened
-      if (parsedParticipant?.class_id) {
+      // Week 1 is always open by default
+      if (Number(weekNumber) === 1) {
+        isBlocked = false;
+      } else if (parsedParticipant?.class_id) {
         try {
           const avList = await base44.entities.AssignmentAvailability.filter({
             assignment: assignmentData.id,
